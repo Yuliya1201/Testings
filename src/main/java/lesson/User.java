@@ -4,27 +4,51 @@ import java.util.Objects;
 public class User {
 
 
-    private String login;
+    private String name;
     private String email;
+    private int id;
+    private int age;
 
 
-    public User(){
+    public User(String name){
+        this.name = name;
     }
 
-    public User(String login, String email) {
-        this.login = login;
+    public User(String name, String email) {
+        this.name = name;
         this.email = email;
     }
-     public String getLogin() {
-        return login;
+    public User(String name,String email,int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+     public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setEmail(String email) {
@@ -35,7 +59,8 @@ public class User {
         if (this==o)return true;
         if (o==null || getClass()!= o.getClass()) return false;
         User user = (User) o;
-        return false;
+        return id == user.id && age == user.age && Objects.equals(name,user.name) && Objects
+                .equals(email,user.email);
     }
 }
 
